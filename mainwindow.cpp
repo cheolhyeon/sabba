@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) : ui(new Ui::MainWindow)
     infile=fopen("succes!.txt","w");                         //succes라는 파일 열기, w는 읽기파일
     this->mainlayout = new QGridLayout;
     this->testlabel = new QLabel;
-    this->testlabel2 = new QLabel;
+    this->testlabel2 = new QLabel;                          
     this->line = new QLineEdit;
     this->line2 = new QLineEdit;
     this->push1 = new QPushButton;
@@ -90,10 +90,11 @@ void MainWindow::click3()                                    //클래스 함수 
 void MainWindow::click4()                                    //텍스트 파일에 저장
 {
     for(k=0; k<n; k++){
-        fprintf(infile,"%s %s \n",
-                model->item(k,0)->text().toUtf8().constData(),model->item(k,1)->text().toUtf8().constData());
+        fprintf(infile,"%s %s \n",기                            //파일 기록
+                model->item(k,0)->text().toUtf8().constData(),  //qstring에 있는 문자를 string으로 바꾸어 준다.
+                model->item(k,1)->text().toUtf8().constData()); 
     }
-        fclose(infile);
+        fclose(infile);                                         //파일 닫기
 }
 
 
